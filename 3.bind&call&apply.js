@@ -29,9 +29,7 @@ Function.prototype._bind = function () {
   for (let i = 1; i < arguments.length; i++) {
     args.push(arguments[i])
   }
-  return () => {
-    this._apply(context, args)
-  }
+  return () => this._apply(context, args)
 }
 
 var obj = {
