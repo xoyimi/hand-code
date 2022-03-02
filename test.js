@@ -1,13 +1,4 @@
-function fun(){
-  console.log(123)
-}
+let arr=[1,2,3]
+let arr2=[3,4,5]
 
-fun.toString=function(){
-  console.log("toString")
-  return 1123123131
-}
-
-
-
-
-fun()
+console.log(arr.filter((e) => arr2.includes(e)))

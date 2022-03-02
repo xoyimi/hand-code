@@ -22,9 +22,7 @@ function debounce(fn, delay) {
 function throttle(fn, interval = 1000, immediate = true) {
   let timer = null
   let executed = false
-
   return () => {
-    console.log('timer:', timer)
     if (immediate && !executed) {
       fn()
       executed = true

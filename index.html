@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="zh-CH">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <script>
-
-
-  </script>
-</body>
+<html lang="en">
+  <head>
+    <title>css阻塞</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      h1 {
+        color: red !important
+      }
+    </style>
+    <script>
+      function h () {
+        console.log(document.querySelectorAll('h1'))
+      }
+        window.onload=()=>{console.log('window.onload')}
+        document.addEventListener('DOMContentLoaded',()=>{console.log('DOMContentLoaded')})
+      setTimeout(h, 0)
+    </script>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>这是红色的</h1>
+  </body>
 </html>
