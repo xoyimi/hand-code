@@ -6,9 +6,9 @@
 /* 柯里化 */
 function curry(fn) {
   return function curried(...args) {
-    // 参数为数组
+    // 如果参数数量不够
     if (args.length < fn.length) {
-      // 如果参数数量不够，返回一个新的柯里化函数
+      // 返回一个新的柯里化函数
       return function (...args2) {
         // 将新的参数数组和旧的参数数组合并
         return curried(...args, ...args2) // 递归调用
@@ -28,17 +28,16 @@ console.log(curriedSumAdd1(2)(3))
 
 // 第二版
 
-var _ = {};
+var _ = {}
 function partial(fn, ...presetArgs) {
-    return function() {
-        var position = 0, len = presetArgs.length;
-        for(var i = 0; i < len; i++) {
-            presetArgs[i] = presetArgs[i] === _ ? arguments[position++] : presetArgs[i]
-        }
-        while(position < arguments.length) presetArgs.push(arguments[position++]);
-        return fn.apply(this, presetArgs);
-    };
-};
-
-
-
+  return function () {
+    var position = 0,
+      len = presetArgs.length
+    for (var i = 0; i < len; i++) {
+      presetArgs[i] =
+        presetArgs[i] === _ ? arguments[position++] : presetArgs[i]
+    }
+    while (position < arguments.length) presetArgs.push(arguments[position++])
+    return fn.apply(this, presetArgs)
+  }
+}
