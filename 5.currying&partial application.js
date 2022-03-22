@@ -41,3 +41,25 @@ function partial(fn, ...presetArgs) {
     return fn.apply(this, presetArgs)
   }
 }
+
+/* 延伸题目
+  实现：add(1)(2)(3)=6
+  add(1)(2)(3)(4)=10
+
+  分析：将所有 args 汇总起来，然后放到一个数组里面，再利用 toString() 方法，
+  
+*/
+function add(...args) {
+  const _args = args
+  function fn(...args2) {
+    _args.push(...args2)
+    return fn
+  }
+  fn.toString = function () {
+    return _args.reduce((a, b) => a + b)
+  }
+  return fn
+}
+
+console.log(+add(1)(2)(3)(4))
+console.log(aaa)
