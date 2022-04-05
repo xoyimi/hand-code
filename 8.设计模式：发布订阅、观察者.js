@@ -35,10 +35,10 @@ export const eventBus = {
   },
   // once: 执行单次事件订阅，触发后自动清除订阅
   once(eventName, handler) {
-    const tempHandler = (args) => {
-      this.off(eventName, tempHandler)
+    const _handler = (args) => {
+      this.off(eventName, _handler)
       handler(args)
     }
-    this.on(eventName, tempHandler)
+    this.on(eventName, _handler)
   },
 }
