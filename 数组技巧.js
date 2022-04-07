@@ -79,7 +79,15 @@ function unique(target) {
 
 // 降至一维
 console.log(arr.flat(Infinity))
-console.log(arr.toString().split(','))
+
+/* 纯数字数组 */
+;[1, [1, [, 1]]]
+  .toString()
+  .split(',')
+  .map((e) => Number(e))
+
+/* 纯字符串数组 */
+;['a', ['a', '123', ['ccc']]].toString().split(',')
 
 /* flatMap */
 
