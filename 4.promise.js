@@ -9,7 +9,6 @@ const resolvePromise = (promise2, x, resolve, reject) => {
     try {
       const then = x.then
       if (typeof then !== 'function') {
-        console.log('typeof then !== function', x)
         resolve(x)
       } else {
         then.call(
@@ -32,6 +31,7 @@ const resolvePromise = (promise2, x, resolve, reject) => {
       reject(e)
     }
   } else {
+    console.log('resolve',x)
     resolve(x)
   }
 }
